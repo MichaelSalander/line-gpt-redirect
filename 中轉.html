@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>請用預設瀏覽器開啟</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 2rem; }
+    .hidden { display: none; }
+  </style>
+  <script>
+    const realUrl = 'https://chatgpt.com/g/g-67f33729192c8191976a3c3619500f45-chan-pin-tui-jian-xi-tong-v1-1-1';
+
+    function isLineBrowser() {
+      return navigator.userAgent.toLowerCase().includes('line');
+    }
+
+    function redirectOrPrompt() {
+      if (isLineBrowser()) {
+        document.getElementById('line-warning').classList.remove('hidden');
+      } else {
+        window.location.href = realUrl;
+      }
+    }
+
+    window.onload = redirectOrPrompt;
+  </script>
+</head>
+<body>
+  <div id="line-warning" class="hidden">
+    <h2>⚠️ 無法直接開啟</h2>
+    <p>請點右上角 <strong>⋯</strong>，選擇 <strong>「在預設瀏覽器中開啟」</strong></p>
+    <p>這樣才能正常登入並使用書籍推薦 AI 🔑</p>
+  </div>
+  <noscript>請啟用 JavaScript</noscript>
+</body>
+</html>
