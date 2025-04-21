@@ -1,37 +1,53 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>請用預設瀏覽器開啟</title>
+  <meta charset="UTF-8">
+  <title>書籍推薦中轉頁</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: sans-serif; text-align: center; padding: 2rem; }
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      text-align: center;
+      padding: 3rem 1rem;
+      background-color: #fff;
+    }
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+    .arrow {
+      position: fixed;
+      bottom: 60px;
+      right: 40px;
+      font-size: 2.5rem;
+      animation: bounce 1s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
     .hidden { display: none; }
   </style>
   <script>
     const realUrl = 'https://chatgpt.com/g/g-67f33729192c8191976a3c3619500f45-chan-pin-tui-jian-xi-tong-v1-1-1';
-
     function isLineBrowser() {
-      return navigator.userAgent.toLowerCase().includes('line');
+      return navigator.userAgent.toLowerCase().includes("line");
     }
-
     function redirectOrPrompt() {
-      if (isLineBrowser()) {
-        document.getElementById('line-warning').classList.remove('hidden');
-      } else {
+      if (!isLineBrowser()) {
         window.location.href = realUrl;
       }
     }
-
     window.onload = redirectOrPrompt;
   </script>
 </head>
 <body>
-  <div id="line-warning" class="hidden">
-    <h2>⚠️ 無法直接開啟</h2>
-    <p>請點右上角 <strong>⋯</strong>，選擇 <strong>「在預設瀏覽器中開啟」</strong></p>
-    <p>這樣才能正常登入並使用書籍推薦 AI 🔑</p>
-  </div>
-  <noscript>請啟用 JavaScript</noscript>
+  <h2>👉 請點右下角 ⋯，選擇「在預設瀏覽器中開啟」</h2>
+  <p>✨ 開始享受 AI 書籍冒險！</p>
+  <div class="arrow">⬇️</div>
 </body>
 </html>
