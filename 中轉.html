@@ -2,17 +2,20 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
-  <title>書籍推薦中轉頁</title>
+  <title>開始 AI 閱讀之旅！</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="在 LINE 中開啟預設瀏覽器，即可啟動 AI 書籍推薦系統！打造屬於你的閱讀冒險！">
   <style>
     body {
       font-family: "Noto Sans TC", sans-serif;
       text-align: center;
-      padding: 3rem 1rem;
-      background-color: #fff;
+      padding: 2rem;
+      background-color: #ffffff;
     }
     h2 {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 3rem;
       margin-bottom: 1rem;
     }
     p {
@@ -21,16 +24,18 @@
     }
     .arrow {
       position: fixed;
-      bottom: 60px;
-      right: 40px;
+      bottom: 50px;
+      right: 30px;
+      width: 48px;
+      height: 48px;
       font-size: 2.5rem;
+      transform: rotate(90deg);
       animation: bounce 1s infinite;
     }
     @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(10px); }
+      0%, 100% { transform: rotate(90deg) translateY(0); }
+      50% { transform: rotate(90deg) translateY(8px); }
     }
-    .hidden { display: none; }
   </style>
   <script>
     const realUrl = 'https://chatgpt.com/g/g-67f33729192c8191976a3c3619500f45-chan-pin-tui-jian-xi-tong-v1-1-1';
