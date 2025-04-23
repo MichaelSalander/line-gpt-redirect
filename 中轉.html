@@ -39,14 +39,21 @@
   </style>
   <script>
     const realUrl = 'https://chatgpt.com/g/g-67f33729192c8191976a3c3619500f45-chan-pin-tui-jian-xi-tong-v1-1-1';
+
     function isLineBrowser() {
-      return navigator.userAgent.toLowerCase().includes("line");
+      const ua = navigator.userAgent.toLowerCase();
+      const isLine = ua.includes("line");
+      const isRealChrome = ua.includes("chrome") && !ua.includes("line");
+      const isSafari = ua.includes("safari") && !ua.includes("line");
+      return isLine && !(isRealChrome || isSafari);
     }
+
     function redirectOrPrompt() {
       if (!isLineBrowser()) {
         window.location.href = realUrl;
       }
     }
+
     window.onload = redirectOrPrompt;
   </script>
 </head>
