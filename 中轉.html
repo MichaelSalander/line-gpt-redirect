@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>開始 AI 閱讀之旅！</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="在 LINE 中開啟預設瀏覽器，即可啟動 AI 書籍推薦系統！打造屬於你的閱讀冒險！">
+  <meta name="description" content="請點右下角 ⋯ 開啟預設瀏覽器，或複製連結到 Safari/Chrome 使用 AI 書籍推薦系統">
   <style>
     body {
       font-family: "Noto Sans TC", sans-serif;
@@ -14,29 +14,54 @@
     }
     h2 {
       font-size: 1.5rem;
-      font-weight: bold;
-      margin-top: 3rem;
-      margin-bottom: 1rem;
+      margin-top: 2rem;
     }
     p {
       font-size: 1.2rem;
-      color: #555;
+      margin: 1rem 0;
     }
-
     .arrow {
       position: fixed;
       bottom: 85px;
       right: 20px;
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       animation: bounce 1.2s infinite;
       opacity: 0.9;
     }
-
     @keyframes bounce {
       0%, 100% { transform: translate(0, 0); }
       50% { transform: translate(5px, 5px); }
     }
+    #backup {
+      display: none;
+      margin-top: 2rem;
+      border-top: 1px solid #ccc;
+      padding-top: 2rem;
+    }
+    button.copy-btn {
+      font-size: 1rem;
+      padding: 0.6rem 1.5rem;
+      background: #0078ff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
   </style>
+</head>
+<body>
+  <h2>👉 請點右下角 ⋯，選擇「在預設瀏覽器中開啟」</h2>
+  <p>✨ 若成功開啟將自動進入推薦系統</p>
+  <div class="arrow">↘️</div>
+
+  <div id="backup">
+    <p>❗若你仍停留在 LINE 中，請手動複製以下連結：</p>
+    <input type="text" id="gptLink" value="https://chatgpt.com/g/g-67f33729192c8191976a3c3619500f45-chan-pin-tui-jian-xi-tong-v1-1-1" readonly style="width: 100%; font-size: 1rem; padding: 0.5rem;">
+    <br><br>
+    <button class="copy-btn" onclick="copyLink()">📋 複製連結</button>
+    <p style="font-size: 0.9rem; color: #666;">請貼到手機的 Safari 或 Chrome 中打開</p>
+  </div>
+
   <script>
     const realUrl = 'https://chatgpt.com/g/g-67f33729192c8191976a3c3619500f45-chan-pin-tui-jian-xi-tong-v1-1-1';
 
@@ -48,18 +73,23 @@
       return isLine && !(isRealChrome || isSafari);
     }
 
-    function redirectOrPrompt() {
-      if (!isLineBrowser()) {
-        window.location.href = realUrl;
-      }
+    function copyLink() {
+      const input = document.getElementById("gptLink");
+      input.select();
+      input.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+      alert("連結已複製 ✅ 請貼到瀏覽器開啟！");
     }
 
-    window.onload = redirectOrPrompt;
+    window.onload = function() {
+      if (!isLineBrowser()) {
+        window.location.href = realUrl;
+      } else {
+        setTimeout(() => {
+          document.getElementById("backup").style.display = "block";
+        }, 5000); // 5秒後顯示備援選項
+      }
+    }
   </script>
-</head>
-<body>
-  <h2>👉 請點右下角 ⋯，選擇「在預設瀏覽器中開啟」</h2>
-  <p>✨ 開始享受 AI 書籍冒險！</p>
-  <div class="arrow">↘️</div>
 </body>
 </html>
