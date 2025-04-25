@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>開始 AI 閱讀之旅！</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="請用預設瀏覽器開啟，或點擊下方按鈕進入 AI 書籍推薦系統">
+  <style>
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      text-align: center;
+      padding: 2rem;
+      background-color: #ffffff;
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+    .arrow {
+      position: fixed;
+      bottom: 85px;
+      right: 20px;
+      font-size: 2.8rem;
+      animation: bounce 1.2s infinite;
+      opacity: 0.9;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(5px, 5px); }
+    }
+    .btn {
+      background: #0078ff;
+      color: white;
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>👉 請點右下角 ⋯，選擇「在預設瀏覽器中開啟」</h2>
+  <p>✨ 或點擊下方按鈕直接開始 AI 書籍冒險！</p>
+  <button class="btn" onclick="go()">立即開啟 AI 書籍推薦</button>
+  <div class="arrow">↘️</div>
+
+  <script>
+    function go() {
+      window.location.href = 'https://chatgpt.com/g/g-67f33729192c8191976a3c3619500f45-chan-pin-tui-jian-xi-tong-v1-1-1';
+    }
+  </script>
+</body>
+</html>
